@@ -1,31 +1,36 @@
 package postofficenew;
-import javax.swing.JOptionPane;
 
+import java.util.Collections;
+import java.util.List;
 
 public class Officer {
-    
-    String name= "Fernando";
-    int age = 40;
-    int idNumber = 69696969;
-    
-    public  void mission()
-    {
-        JOptionPane.showMessageDialog(null,"I'm the officer here, Mr."+name);
-        String mission1 = JOptionPane.showInputDialog("How can we help you sir! ");
-        switch (mission1) {
-            case "send a letter":
-                LetterFolder writingLetter = new LetterFolder();
-                writingLetter.writing();
-                break;
-            case "buy stamps":
-                StampFolder buyStamp = new StampFolder();
-                buyStamp.buyingStamps();
-                break;
-            default:
-                JOptionPane.showMessageDialog(null,"Error input.Try again");
-                mission();
-                break;
-        }
+    private final String name;
+    private final int age;
+    private final Building building;
+
+    public Officer(String name, int age, Building building) {
+        this.name = name;
+        this.age = age;
+        this.building = building;
     }
-    
+
+    public boolean receivedLetter(Letter letter) {
+        return true;
+    }
+
+    public List<Stamp> sellStamps (int moneyAmount) {
+        return Collections.emptyList();
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public int getAge() {
+        return age;
+    }
+
+    public Building getBuilding() {
+        return building;
+    }
 }
